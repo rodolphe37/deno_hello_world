@@ -1,7 +1,10 @@
-const helloWorld = (name: string = "world") => {
-  console.log(`Hello ${name}!!`);
-}
+import { Application } from "https://deno.land/x/abc@v1.0.0-rc10/mod.ts";
 
-helloWorld();
+const app = new Application();
 
-helloWorld("friend");
+app
+  .get(":hello", (c) => {
+    return "Hello, Abc !";
+  })
+
+  .start({ port: 8000 });
